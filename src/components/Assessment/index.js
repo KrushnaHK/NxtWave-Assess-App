@@ -12,7 +12,7 @@ import ScoreContext from '../../context/ScoreContext'
 
 import './index.css'
 
-const apiStatusConsts = {
+const apiStatusConstants = {
   initial: 0,
   loading: 1,
   success: 2,
@@ -21,7 +21,7 @@ const apiStatusConsts = {
 
 const Assessment = ({history}) => {
   const [apiResponse, setApiResponse] = useState({
-    status: apiStatusConsts.initial,
+    status: apiStatusConstants.initial,
     questionsList: null,
     totalQuestions: null,
     errorMsg: null,
@@ -40,7 +40,7 @@ const Assessment = ({history}) => {
   // fetching data from api
   const getData = async () => {
     setApiResponse({
-      status: apiStatusConsts.loading,
+      status: apiStatusConstants.loading,
       questionsList: null,
       totalQuestions: null,
       errorMsg: null,
@@ -77,14 +77,14 @@ const Assessment = ({history}) => {
         }
       })
       setApiResponse({
-        status: apiStatusConsts.success,
+        status: apiStatusConstants.success,
         questionsList: updatedData,
         totalQuestions: data.total,
         errorMsg: null,
       })
     } else {
       setApiResponse({
-        status: apiStatusConsts.failure,
+        status: apiStatusConstants.failure,
         questionsList: null,
         totalQuestions: null,
         errorMsg: data.error_msg,
@@ -204,13 +204,13 @@ const Assessment = ({history}) => {
 
   let viewToRender = null
   switch (apiResponse.status) {
-    case apiStatusConsts.success:
+    case apiStatusConstants.success:
       viewToRender = renderMainView()
       break
-    case apiStatusConsts.failure:
+    case apiStatusConstants.failure:
       viewToRender = <Error retryFunc={retryAPI} />
       break
-    case apiStatusConsts.loading:
+    case apiStatusConstants.loading:
       viewToRender = renderLoader()
       break
     default:
