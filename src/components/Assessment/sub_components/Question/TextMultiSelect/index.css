@@ -1,0 +1,23 @@
+.question-text-option-button {
+  padding: 20px;
+  font-family: 'Roboto';
+  font-size: 20px;
+  font-weight: 400;
+  color: #334155;
+  background-color: #ebf3ff;
+  border-style: none;
+  border-radius: 8px;
+  width: 100%;
+  text-align: start;
+}
+
+.active-option-highlight {
+  background-color: #5b6f94;
+  color: #f8fafc;
+}
+
+@media (max-width: 767px) {
+  .question-text-option-button {
+    font-size: 16px;
+  }
+}
